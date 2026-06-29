@@ -43,7 +43,6 @@ function validationChk(data,type){
 			return REGEX.userEmail.test(data);
 			
 		case "userPhone":
-			console.log(data);
 			return REGEX.userPhone.test(data);
 			
 		case "userAddr":

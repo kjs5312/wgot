@@ -27,7 +27,6 @@ public class TripRegistController {
 	@RequestMapping("/tripInsert")
 	@ResponseBody
 	public Map<String, Object> placeInsert(@RequestBody Map<String, Object> map) throws IOException{
-		System.out.println("mapData >>>> " + map);
 		Map<String, Object> res = new HashMap<>();
 		
 		res = tripRegistService.placeInsert(map);

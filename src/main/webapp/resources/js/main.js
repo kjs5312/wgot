@@ -19,7 +19,7 @@ function tripInfo(){
 			contentType: 'application/json',
 			data:JSON.stringify({
 				/*이것도 수정해야함....*/
-				'trip_nm' : "test",
+				'trip_nm' : "trip_nm",
 				
 			}),
 	        success: function(response) {

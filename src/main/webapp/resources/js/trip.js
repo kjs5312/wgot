@@ -3,7 +3,6 @@ const tripUuid = window.tripUuid;
 let mode = "create";
 
 window.onload = function(){
-	console.log(window.tripUuid,"??")
 	if(tripUuid && tripUuid.trim() !== '') {
 		mode = "update";
 		$(".form-title").text("여행 수정");
@@ -106,7 +105,6 @@ function tripInsert(){
 						
 					}),
 			        success: function(response) {
-						console.log("res >>> "+response)
 						if(response.result === 'success'){
 							if(confirm("여행이 등록되었습니다. \n목적지를 등록하시겠습니까?")){
 								sessionStorage.setItem("trip_nm", formData.tripName);
@@ -153,7 +151,6 @@ function tripUpdate(){
 					
 				}),
 		        success: function(response) {
-					console.log("res >>> "+response)
 					if(response.result === 'success'){
 						sessionStorage.setItem("trip_nm", formData.tripName);
 						sessionStorage.setItem("start_date", formData.startDate);

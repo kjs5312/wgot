@@ -405,8 +405,6 @@ function renderOverlay(){
 
         overlay.setMap(map);
         overlays.push(overlay);
-		console.log(		Number(place.place_lat),
-		                Number(place.place_lng))
 		bounds.extend(
 			new kakao.maps.LatLng(
 				Number(place.place_lat),
@@ -496,7 +494,6 @@ function getRoute(){
 					        routePolyLines.push(routePolyLine);
 					    });
 					}else{
-					    console.log("fail : ", response);
 					}
 		        },
 		        error: function(xhr, status, error) {

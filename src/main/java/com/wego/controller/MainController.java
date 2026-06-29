@@ -59,7 +59,6 @@ public class MainController {
 	@RequestMapping("/trip/tripUpdateInfo")
 	@ResponseBody
 	public Map<String,Object> tripUpdateInfo(@RequestBody Map<String, Object> map) throws IOException{
-		System.out.println("update data : "+map);
 		return mainService.tripUpdateInfo(map);
 	}
 	
@@ -151,7 +150,6 @@ public class MainController {
 				routeMap.put("path", routePath);
 				
 				routeList.add(routeMap);
-				System.out.println("route Path >>> "+routeList);
 			} catch (Exception e){
 				e.printStackTrace();
 			}
