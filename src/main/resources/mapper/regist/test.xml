@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wego.mapper.WeGoMapper">
+
+    <insert id="test">
+
+        INSERT INTO trip
+        (
+            trip_nm,
+            start_date,
+            end_date,
+            trip_type
+        )
+        VALUES
+        (
+<!--             #{trip_nm} -->
+			'11',
+			'2026-05-15',
+			'2026-05-15',
+			'pri',
+			
+			
+        )
+
+    </insert>
+
+</mapper>

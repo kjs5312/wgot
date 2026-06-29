@@ -1,0 +1,738 @@
+@charset "UTF-8";
+
+/* =========================================
+   PLACE PAGE
+========================================= */
+
+.place-wrap{
+
+    width: 100%;
+
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    padding: 20px 0;
+}
+
+
+/* =========================================
+   MAP
+========================================= */
+
+.place-map-wrap{
+
+    position: relative;
+
+    width: 92%;
+
+    height: 320px;
+
+    margin: 0 auto;
+
+    border-radius: 28px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 10px 24px rgba(0,0,0,0.06);
+}
+
+#map{
+
+    width: 100%;
+    height: 100%;
+}
+
+
+/* =========================================
+   SEARCH
+========================================= */
+
+.place-search{
+
+    position: absolute;
+
+    top: 16px;
+
+    left: 16px;
+
+    right: 16px;
+
+    z-index: 10;
+}
+
+.place-search-input{
+
+    width: 100%;
+
+    height: 52px;
+
+    padding: 0 18px;
+
+    border: none;
+
+    outline: none;
+
+    border-radius: 18px;
+
+    background: rgba(255,255,255,0.92);
+
+    font-size: 15px;
+
+    color: #334155;
+
+    box-shadow:
+        0 6px 18px rgba(0,0,0,0.08);
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   PLACE CARD AREA
+========================================= */
+
+.place-card-container{
+
+    width: 92%;
+
+    margin: 20px auto 0 auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 16px;
+}
+
+
+/* =========================================
+   ACCORDION CARD
+========================================= */
+
+.place-card{
+
+    background: rgba(255,255,255,0.82);
+
+    backdrop-filter: blur(10px);
+
+    border-radius: 24px;
+
+    padding: 18px;
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.05);
+
+    transition: 0.2s;
+}
+
+.place-card:hover{
+
+    transform: translateY(-2px);
+}
+
+.place-card.active{
+
+    border: 2px solid #67e8f9;
+
+    box-shadow:
+        0 0 0 4px rgba(103,232,249,0.15);
+}
+
+.place-body{
+
+    display:none !important;
+}
+.place-card.active .place-body{
+
+    display:block !important;
+}
+/* =========================================
+   HEADER
+========================================= */
+
+.place-header{
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    cursor: pointer;
+}
+
+.place-title{
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    color: #334155;
+}
+
+.place-order{
+
+    width: 34px;
+
+    height: 34px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #86efac,
+            #67e8f9
+        );
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================
+   BODY
+========================================= */
+
+.place-body{
+
+    margin-top: 18px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+
+/* =========================================
+   INPUT
+========================================= */
+
+.place-input{
+
+    width: 100%;
+
+    height: 52px;
+
+    padding: 0 16px;
+
+    border: 1px solid rgba(0,0,0,0.05);
+
+    border-radius: 18px;
+
+    background: rgba(255,255,255,0.9);
+
+    font-size: 15px;
+
+    color: #334155;
+
+    outline: none;
+
+    box-sizing: border-box;
+
+    transition: 0.2s;
+}
+
+.place-input:focus{
+
+    border-color: #cbd5e1;
+
+    box-shadow:
+        0 0 0 4px rgba(226,232,240,0.5);
+}
+
+
+/* =========================================
+   TIME ROW
+========================================= */
+
+.place-time-row{
+
+    display: flex;
+
+    gap: 12px;
+}
+
+.place-time-row .place-input{
+
+    flex: 1;
+}
+
+
+/* =========================================
+   MEMO
+========================================= */
+
+.place-textarea{
+
+    width: 100%;
+
+    min-height: 120px;
+
+    padding: 16px;
+
+    border: 1px solid rgba(0,0,0,0.05);
+
+    border-radius: 18px;
+
+    background: rgba(255,255,255,0.9);
+
+    resize: none;
+
+    outline: none;
+
+    box-sizing: border-box;
+
+    font-size: 15px;
+
+    color: #334155;
+}
+
+
+/* =========================================
+   BUTTON AREA
+========================================= */
+
+.place-btn-wrap{
+
+    width: 92%;
+
+    margin: 20px auto 0 auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+
+/* =========================================
+   ADD BUTTON
+========================================= */
+
+.place-add-btn{
+
+    width: 100%;
+
+    height: 58px;
+
+    border: 2px dashed #cbd5e1;
+
+    border-radius: 24px;
+
+    background: rgba(255,255,255,0.65);
+
+    color: #64748b;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.place-add-btn:hover{
+
+    transform: translateY(-2px);
+
+    background: rgba(255,255,255,0.9);
+}
+
+
+/* =========================================
+   SAVE BUTTON
+========================================= */
+
+.place-save-btn{
+
+    width: 100%;
+
+    height: 60px;
+
+    border: none;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #86efac,
+            #67e8f9
+        );
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 20px rgba(0,0,0,0.08);
+
+    transition: 0.2s;
+}
+
+.place-save-btn:hover{
+
+    transform: translateY(-2px);
+}
+
+.place-edit-btn{
+
+    width: 100%;
+
+    height: 60px;
+
+    border: none;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #60a5fa,
+            #818cf8
+        );
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 20px rgba(0,0,0,0.08);
+
+    transition: 0.2s;
+}
+
+.place-edit-btn:hover{
+
+    transform: translateY(-2px);
+}
+
+.trip-delete-btn{
+
+    width: 100%;
+
+    height: 60px;
+
+    border: none;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f87171,
+            #ef4444
+        );
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 20px rgba(0,0,0,0.08);
+
+    transition: 0.2s;
+}
+
+.trip-delete-btn:hover{
+
+    transform: translateY(-2px);
+
+}
+
+
+
+.place-search-wrap{
+
+    position: relative;
+}
+
+.place-search-input{
+
+    padding-right: 54px;
+}
+
+.place-search-icon{
+
+    position: absolute;
+
+    top: 50%;
+    right: 18px;
+
+    transform: translateY(-50%);
+
+    width: 22px;
+    height: 22px;
+
+    opacity: 0.65;
+
+    cursor: pointer;
+}
+
+
+
+.place-search-result{
+
+    position: absolute;
+
+    top: 78px;
+
+    left: 16px;
+
+    right: 16px;
+
+    max-height: 230px;
+
+    overflow-y: auto;
+
+    z-index: 20;
+
+    border-radius: 18px;
+
+    background: rgba(255,255,255,0.96);
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 10px 24px rgba(0,0,0,0.08);
+}
+
+
+.place-search-item{
+
+    padding: 6px 18px;
+
+    border-bottom: 1px solid #f1f5f9;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.place-search-item:hover{
+
+    background: #f8fafc;
+}
+
+.place-search-name{
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    color: #334155;
+}
+
+.place-search-address{
+
+    margin-top: 4px;
+
+    font-size: 13px;
+
+    color: #64748b;
+}
+
+
+
+
+
+
+
+.place-action{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+}
+.place-delete-btn{
+
+    width:34px;
+
+    height:34px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:rgba(239,68,68,0.08);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    transition:0.2s;
+}
+
+.place-delete-btn:hover{
+
+    background:rgba(239,68,68,0.15);
+
+    transform:scale(1.05);
+}
+
+.place-delete-btn img{
+
+    width:16px;
+
+    height:16px;
+
+    opacity:0.7;
+}
+
+.place-delete-btn:hover img{
+    opacity:1;
+}
+
+
+
+
+.marker-number{
+     width:20px;
+    height:20px;
+
+    border-radius:50%;
+
+    background:linear-gradient(
+        135deg,
+        #86efac,
+        #67e8f9
+    );
+
+    color:white;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:16px;
+    font-weight:800;
+
+    border:3px solid white;
+
+    box-shadow:
+        0 4px 10px rgba(0,0,0,0.15);
+}
+
+.place-header{
+    cursor: grab;
+}
+
+.place-header:active{
+    cursor: grabbing;
+}
+
+
+.trip-info-wrap{
+
+    width: 92%;
+
+    margin: 0 auto 20px auto;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 18px 22px;
+
+    border-radius: 20px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 4px 15px rgba(0,0,0,0.06);
+
+}
+
+.trip-info-left{
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+.trip-title{
+
+    font-size: 24px;
+
+    font-weight: 800;
+
+    color: #1e293b;
+
+    letter-spacing: -0.5px;
+}
+
+.trip-date{
+
+    font-size: 14px;
+
+    color: #64748b;
+}
+
+.trip-edit-btn{
+
+    border: none;
+
+    border-radius: 12px;
+
+    padding: 10px 16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #60a5fa,
+            #818cf8
+        );
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.trip-edit-btn:hover{
+
+    transform: translateY(-2px);
+}

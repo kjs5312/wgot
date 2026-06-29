@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+"https://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+    <definition name="layout" template="/WEB-INF/views/common/layout.jsp">
+
+        <put-attribute name="header"  value="/WEB-INF/views/common/header.jsp"/>
+
+        <put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp"/>
+
+        <put-attribute name="body" value=""/>
+
+    </definition>
+
+    <definition name="trip/main" extends="layout">
+        <put-attribute name="body" value="/WEB-INF/views/trip/main.jsp"/>
+    </definition>
+
+
+	<definition name="regist" template="/WEB-INF/views/common/formLayout.jsp">
+		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp"/>
+		<put-attribute name="body" value=""/>
+	</definition>
+	
+	<definition name="regist/trip" extends="regist">
+        <put-attribute name="body" value="/WEB-INF/views/trip/regist/trip.jsp"/>
+    </definition>
+
+	<definition name="trip/place" extends="regist">
+        <put-attribute name="body" value="/WEB-INF/views/trip/place.jsp"/>
+    </definition>
+    
+</tiles-definitions>

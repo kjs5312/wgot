@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="main">
+
+    <select id="tripInfo" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+
+       select 
+       		trip_uuid,
+       		trip_nm, 
+       		TO_CHAR(start_date, 'YYYY-MM-DD') AS start_date, 
+       		TO_CHAR(end_date, 'YYYY-MM-DD') AS end_date, 
+       		member_cnt, 
+       		trip_location  
+       from 
+       		trip
+		order by start_date
+    </select>
+    
+    <select id="getTripInfo" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+    	select 
+    		trip_nm,
+    		TO_CHAR(start_date, 'YYYY-MM-DD') AS start_date, 
+       		TO_CHAR(end_date, 'YYYY-MM-DD') AS end_date, 
+       		member_cnt, 
+       		trip_location,
+       		trip_type,
+       		trip_memo
+       	from 
+       		trip
+       	where 
+       		trip_uuid = #{uuid}::uuid
+       		and delete_yn='N'
+    </select>
+    
+    <update id="tripUpdateInfo" parameterType="java.util.HashMap">
+    	update trip
+    	set
+    		trip_nm = #{trip_nm},
+            trip_location = #{trip_location},
+            start_date = #{start_date}::date,
+            end_date = #{end_date}::date,
+            trip_type = #{trip_type},
+            member_cnt = #{member_cnt}::int,
+            trip_memo = #{trip_memo},
+            update_at = now()
+        where
+        	trip_uuid = #{uuid}::uuid   
+    </update>
+    
+    
+    <select id="getPlaceList"  resultType="java.util.HashMap">
+        select 
+			 name as place_name,
+			 category as place_category,
+			 place_address,
+			 lng as place_lng,
+			 lat as place_lat,
+			 order_no,
+			 memo as place_memo,
+			 place_url       		
+        from 
+       	 	 place
+	    where
+	    	delete_yn = 'N'
+	    	and trip_id = #{trip_id}
+	    order by order_no asc
+    </select>
+    
+	<select id="getPlaceState" parameterType="java.util.HashMap" resultType="int">
+		select count(*)
+		from
+			place
+		where 
+			trip_uuid = #{uuid}::uuid
+	</select>
+
+
+    <select id="getTripId" parameterType="java.util.HashMap" resultType="int">
+    	select trip_id
+		from trip 
+		where trip_uuid = #{uuid}::uuid
+    </select>
+    
+    <delete id="deletePlaceInfo">
+    	delete from place 
+    	where trip_id = #{trip_id}
+    </delete>
+    
+    <select id="placeInfo" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+       select 
+			p.name, 
+			p.category, 
+			p.lag, 
+			p.lng, 
+			p.order_no, 
+			p.visit_date, 
+			p.memo
+	   from 
+	   		trip t inner join place p 
+	   		on t.trip_id = p.trip_id
+	   where 
+	   		t.trip_uuid = #{uuid}
+
+    </select>
+	
+	<insert id="insertPlaceInfo" parameterType="java.util.ArrayList" >
+		<foreach collection="list" item="place" separator=";">
+			insert into place
+				(
+					trip_id,
+					name,
+					category,
+					lat,
+					lng,
+					order_no,
+					memo,
+					place_address,
+					place_url
+				)
+			values
+				(
+					#{place.trip_id}
+					,
+					#{place.place_name},
+					#{place.category_name},
+					#{place.place_lat},
+					#{place.place_lng},
+					#{place.order_no}::int,
+					#{place.place_memo},
+					#{place.place_address},
+					#{place.place_url}
+				)
+		</foreach>
+	</insert>
+	
+	<delete id="deletePlace" parameterType="int">
+    	delete from place 
+    	where trip_id = #{trip_id}
+    </delete>
+	
+	<delete id="deleteTrip" parameterType="string">
+		delete from trip 
+			where trip_uuid = #{uuid}::uuid
+	</delete>
+</mapper>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="regist">
+
+    <select id="placeInsert" parameterType="java.util.HashMap" resultType="string">
+
+        INSERT INTO trip
+        (
+            trip_nm,
+            trip_location,
+            start_date,
+            end_date,
+            trip_type,
+            member_cnt,
+            trip_memo
+        )
+        VALUES
+        (
+            #{trip_nm},
+            #{trip_location},
+            #{start_date}::date,
+            #{end_date}::date,
+            #{trip_type},
+            #{member_cnt}::int,
+            #{trip_memo}
+        )
+		RETURNING trip_uuid
+    </select>
+
+</mapper>
