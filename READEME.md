@@ -1,4 +1,4 @@
-WeGoTrip
+WeGoOurTrip
 
 여행 계획 수립 및 공유를 위한 웹 서비스
 
